@@ -11,5 +11,6 @@ def main():
   num_words = word_count(book_text)
   num_chars = char_count(book_text)
   print(f"Found {num_words} total words")
+  print(num_chars)
 
 main()
