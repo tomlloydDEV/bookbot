@@ -3,9 +3,8 @@ def word_count(book_text):
   return num_words
 
 def char_count(book_text):
-  book_text = len(book_text.lower())
+  book_text = book_text.lower()
   chars = {}
-
   for c in book_text:
     if c in chars:
       chars[c] += 1
