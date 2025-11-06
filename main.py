@@ -1,3 +1,5 @@
+import sys
+
 from stats import char_count, chars_sorted, word_count
 
 
@@ -8,9 +10,6 @@ def get_book_text(filepath: str) -> str:
 
 
 def main() -> None:
-    path = "books/frankenstein.txt"
-    text = get_book_text(path)
-
     # --- Exact report format (match tests) ---
     print("============ BOOKBOT ============")
     print(f"Analyzing book found at {path}...")
