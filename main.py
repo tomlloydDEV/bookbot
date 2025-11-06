@@ -1,16 +1,31 @@
-from stats import word_count
-from stats import char_count
-
-def get_book_text(filepath):
-  with open(filepath) as f:
-    return f.read()
+from stats import char_count, chars_sorted, word_count
 
 
-def main():
-  book_text = get_book_text("books/frankenstein.txt")
-  num_words = word_count(book_text)
-  chars = char_count(book_text)
-  print(f"Found {num_words} total words")
-  print(chars)
+def get_book_text(filepath: str) -> str:
+    # UTF-8 so extended letters (æ, â, etc.) read correctly
+    with open(filepath, encoding="utf-8") as f:
+        return f.read()
 
-main()
+
+def main() -> None:
+    path = "books/frankenstein.txt"
+    text = get_book_text(path)
+
+    # --- Exact report format (match tests) ---
+    print("============ BOOKBOT ============")
+    print(f"Analyzing book found at {path}...")
+    print("----------- Word Count ----------")
+    print(f"Found {word_count(text)} total words")
+    print("--------- Character Count -------")
+
+    counts = char_count(text)
+    for row in chars_sorted(counts):  # already sorted desc by 'num'
+        ch = row["char"]
+        if ch.isalpha():  # print only letters
+            print(f"{ch}: {row['num']}")
+
+    print("============= END ===============")
+
+
+if __name__ == "__main__":
+    main()
