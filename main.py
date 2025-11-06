@@ -9,6 +9,8 @@ def get_book_text(filepath: str) -> str:
 
 
 def main() -> None:
+    path = sys.argv[1]
+    text = get_book_text(path)
     # --- Exact report format (match tests) ---
     print("============ BOOKBOT ============")
     print(f"Analyzing book found at {path}...")
