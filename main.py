@@ -25,6 +25,7 @@ def main() -> None:
 
     counts = char_count(text)
     for row in chars_sorted(counts):
+        ch = row["char"]
         if ch.isalpha():  # print only letters
             print(f"{ch}: {row['num']}")
 
