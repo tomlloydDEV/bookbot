@@ -4,7 +4,6 @@ from stats import char_count, chars_sorted, word_count
 
 
 def get_book_text(filepath: str) -> str:
-    # UTF-8 so extended letters (æ, â, etc.) read correctly
     with open(filepath, encoding="utf-8") as f:
         return f.read()
 
@@ -18,8 +17,7 @@ def main() -> None:
     print("--------- Character Count -------")
 
     counts = char_count(text)
-    for row in chars_sorted(counts):  # already sorted desc by 'num'
-        ch = row["char"]
+    for row in chars_sorted(counts):
         if ch.isalpha():  # print only letters
             print(f"{ch}: {row['num']}")
 
